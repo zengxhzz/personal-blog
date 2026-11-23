@@ -1,0 +1,63 @@
+.project-detail {
+  --nav-height: 68px;
+  --detail-ink: #191a18;
+  --detail-muted: #565950;
+  --detail-rule: #26292444;
+  background: var(--chalk);
+  color: var(--detail-ink);
+}
+
+.project-detail .wrap { width: min(1296px, calc(100% - 96px)); }
+.project-detail .top { background: var(--black); border-bottom: 0; }
+.project-detail .top nav a { color: var(--chalk); font-size: 14px; }
+.project-detail main { padding-bottom: 18px; }
+
+.case-masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  padding: 53px 0 45px;
+  border-bottom: 1px solid var(--detail-rule);
+}
+
+.case-masthead h1 {
+  margin: 0;
+  font-size: clamp(45px, 8.2vw, 118px);
+  line-height: .96;
+  letter-spacing: -.073em;
+}
+
+.case-intro { margin: 18px 0 0; color: var(--detail-muted); font-size: 21px; line-height: 1.5; }
+.case-meta { display: grid; gap: 10px; justify-items: start; padding: 3px 2px 2px 0; font-size: 15px; }
+.case-meta p { margin: 0; color: var(--detail-muted); }
+.case-status { display: flex; align-items: center; gap: 8px; }
+.case-status::before { content: ""; width: 7px; height: 7px; border: 1px solid currentColor; border-radius: 50%; }
+.case-meta a { margin-top: 5px; font-weight: 650; text-underline-offset: 5px; }
+
+.case-feature {
+  display: grid;
+  grid-template-columns: minmax(204px, .36fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--detail-rule);
+}
+
+.case-feature-themes { grid-template-columns: minmax(0, 1fr) minmax(204px, .36fr); }
+.case-feature-themes .case-copy { grid-area: 1 / 2; }
+.case-feature-themes .case-figure { grid-area: 1 / 1; }
+.case-copy h2 { margin: 0 0 11px; font-size: clamp(27px, 3.35vw, 46px); line-height: 1.14; letter-spacing: -.045em; }
+.case-copy p { max-width: 18em; margin: 0; color: var(--detail-muted); font-size: 15px; line-height: 1.65; }
+.case-figure { min-width: 0; margin: 0; }
+.case-image { border: 1px solid var(--detail-rule); background: #f9f6f0; }
+.case-figure figcaption { margin-top: 8px; color: var(--detail-muted); text-align: right; font-size: 12px; }
+
+@media (max-width: 750px) {
+  .project-detail { --nav-height: 58px; }
+  .project-detail .wrap { width: calc(100% - 38px); }
+  .case-masthead, .case-feature { grid-template-columns: 1fr; gap: 20px; }
+  .case-masthead { padding-block: 35px; }
+  .case-intro { font-size: 17px; }
+  .case-feature-themes .case-copy, .case-feature-themes .case-figure { grid-area: auto; }
+}

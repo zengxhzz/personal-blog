@@ -62,6 +62,7 @@ main section[id] { scroll-margin-top: var(--nav-height); }
 .project-copy > p { margin: 15px 0 15px; font-size: clamp(14px, 1.4vw, 17px); line-height: 1.65; color: #535650; }
 .project-links { display: flex; flex-wrap: wrap; gap: 13px; font-size: 13px; }
 .project-links a { text-underline-offset: 4px; }
+.project-details-link { font-weight: 700; }
 .gallery-nav { display: flex; flex-wrap: wrap; gap: 5px; margin-top: clamp(19px, 4vh, 42px); }
 .gallery-nav button {
   display: inline-flex; align-items: center; min-height: 39px; padding: 6px 10px;
