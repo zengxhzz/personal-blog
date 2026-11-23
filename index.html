@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人博客 · 前端作品与开发笔记</title>
+  <meta name="description" content="前端开发作品与技术笔记，精选项目 Gentle Diary。">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-row wrap">
+      <a class="brand" href="#home">个人博客</a>
+      <nav aria-label="主导航">
+        <a href="#work">作品</a>
+        <a href="#journal">文章</a>
+        <a href="#about">关于</a>
+      </nav>
+    </div>
+    <div class="progress" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="intro" id="home" aria-labelledby="home-title">
+      <div class="intro-content wrap">
+        <figure class="cover-photo">
+          <img src="assets/gallery-cover.avif" alt="黑白摄影，一位行人穿过混凝土长廊的光影" fetchpriority="high">
+        </figure>
+        <div class="headline">
+          <p class="kicker">前端开发 · 个人博客</p>
+          <h1 id="home-title"><span>做过的项目，</span><span>写下的过程。</span></h1>
+          <p>我的前端作品、开发记录和技术笔记。</p>
+        </div>
+        <div class="intro-actions">
+          <a class="scroll-link" href="#work"><span aria-hidden="true">↓</span>浏览作品</a>
+          <a class="credit" href="https://unsplash.com/photos/grayscale-photo-of-woman-walking-on-hallway-crLZQ0DF1_Y" target="_blank" rel="noopener">摄影 Derek Lee</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="work-scene wrap">
+        <div class="section-line"><h2 id="work-title">精选作品</h2><span>持续开发中</span></div>
+        <article class="project">
+          <div class="project-copy">
+            <h3>Gentle<br> Diary</h3>
+            <p>用 Vue 3 和 Capacitor 做的本地优先日记应用。</p>
+            <div class="project-links">
+              <a href="https://github.com/zengxhzz/gentle-diary" target="_blank" rel="noopener">查看源码 ↗</a>
+              <a href="https://github.com/zengxhzz/gentle-diary/blob/main/%E8%AE%BE%E8%AE%A1%E5%9B%BE.png" target="_blank" rel="noopener">完整设计图 ↗</a>
+            </div>
+            <div class="gallery-nav" role="group" aria-label="作品图集">
+              <button type="button" data-plate="0" aria-controls="work-gallery" aria-pressed="true">项目概览</button>
+              <button type="button" data-plate="1" aria-controls="work-gallery" aria-pressed="false">写作界面</button>
+              <button type="button" data-plate="2" aria-controls="work-gallery" aria-pressed="false">主题设计</button>
+            </div>
+            <div class="gallery-progress" aria-hidden="true"><span></span></div>
+          </div>
+          <div class="gallery" id="work-gallery" role="region" aria-label="Gentle Diary 设计图集">
+            <div class="gallery-track">
+              <figure class="plate plate-overview">
+                <div class="plate-image"><img src="assets/gentle-diary-design.png" alt="Gentle Diary 的编辑器、日历与主题设计总览" width="1312" height="1199" fetchpriority="low" decoding="async"></div>
+                <figcaption><strong>项目概览</strong><span>Gentle Diary · 界面设计稿</span></figcaption>
+              </figure>
+              <figure class="plate plate-writing">
+                <div class="plate-image"><img src="assets/gentle-diary-design.png" alt="Gentle Diary 设计稿中，带有图片和格式工具的写作界面" width="1312" height="1199" fetchpriority="low" decoding="async"></div>
+                <figcaption><strong>写作界面</strong><span>草稿编辑、图片排版与工具入口</span></figcaption>
+              </figure>
+              <figure class="plate plate-themes">
+                <div class="plate-image"><img src="assets/gentle-diary-design.png" alt="Gentle Diary 设计稿中的六个主题样式" width="1312" height="1199" fetchpriority="low" decoding="async"></div>
+                <figcaption><strong>主题设计</strong><span>同一个写作界面的不同主题</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="journal wrap" id="journal" aria-labelledby="journal-title">
+      <div class="section-line"><h2 id="journal-title">开发笔记</h2><span>内容方向</span></div>
+      <dl>
+        <div><dt>项目迭代</dt><dd>记录每个项目的进展和技术决定。</dd></div>
+        <div><dt>技术笔记</dt><dd>写下遇到的问题、解决过程和验证结果。</dd></div>
+      </dl>
+    </section>
+    <section class="about wrap" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">关于</h2>
+      <p>我用这个地方记录自己的前端项目和开发过程。</p>
+      <a href="https://github.com/zengxhzz" target="_blank" rel="noopener">GitHub ↗</a>
+    </section>
+  </main>
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
