@@ -2,10 +2,8 @@
   const intro = document.querySelector('.intro');
   const work = document.querySelector('.work');
   const workScene = document.querySelector('.work-scene');
-  const journal = document.querySelector('.journal');
   const progress = document.querySelector('.progress');
-  const links = Array.from(document.querySelectorAll('.top nav a[href^="#"]'));
-  const targets = links.map((link) => document.querySelector(link.hash));
+  const workLink = document.querySelector('.top nav a[href="#work"]');
   const gallery = document.querySelector('.gallery');
   const track = document.querySelector('.gallery-track');
   const plates = Array.from(track.querySelectorAll('.plate'));
@@ -18,12 +16,12 @@
   let viewportHeight = window.innerHeight;
   let maxScroll = 1;
   let introDistance = 1;
-  let targetsY = [];
+  let workTop = 0;
   let workStart = 0;
   let workLength = 1;
   let galleryLength = 1;
   let lastFrameTime = 0;
-  let activeChapter = -2;
+  let workLinkActive = false;
   let activePlate = -1;
   let frame = 0;
 
@@ -31,10 +29,10 @@
     viewportHeight = window.innerHeight;
     maxScroll = Math.max(1, document.documentElement.scrollHeight - viewportHeight);
     introDistance = Math.max(1, intro.offsetHeight);
-    targetsY = targets.map((target) => target.getBoundingClientRect().top + window.scrollY);
+    workTop = work.getBoundingClientRect().top + window.scrollY;
     const headerHeight = document.querySelector('.top').offsetHeight;
-    workStart = targetsY[0] - headerHeight;
-    workLength = Math.max(1, work.offsetHeight - workScene.offsetHeight);
+    workStart = workTop - headerHeight;
+    workLength = Math.max(1, Math.min(work.offsetHeight - workScene.offsetHeight, maxScroll - workStart));
     galleryLength = Math.max(1, track.scrollWidth - gallery.clientWidth);
   };
 
@@ -59,8 +57,7 @@
     progress.style.setProperty('--progress', String(clamp(offset / maxScroll)));
     if (smooth) {
       const hero = clamp(easedOffset / (introDistance * .9));
-      const entrance = clamp((easedOffset + viewportHeight * .68 - targetsY[0]) / (viewportHeight * .68));
-      const writing = clamp((easedOffset + viewportHeight * .77 - targetsY[1]) / (viewportHeight * .62));
+      const entrance = clamp((easedOffset + viewportHeight * .68 - workTop) / (viewportHeight * .68));
       intro.style.setProperty('--cover-y', (hero * 36) + 'px');
       intro.style.setProperty('--cover-img-y', (hero * 41) + 'px');
       intro.style.setProperty('--cover-scale', String(1.04 + hero * .145));
@@ -70,8 +67,6 @@
       intro.style.setProperty('--headline-y', (-hero * 87) + 'px');
       intro.style.setProperty('--headline-opacity', String(1 - hero * .50));
       work.style.setProperty('--project-copy-y', ((1 - entrance) * 50) + 'px');
-      journal.style.setProperty('--journal-y', ((1 - writing) * 22) + 'px');
-      journal.style.setProperty('--journal-second-y', ((1 - writing) * 44) + 'px');
     }
 
     if (nativeGallery.matches) {
@@ -82,14 +77,11 @@
       updatePlate(galleryProgress);
     }
 
-    const atEnd = maxScroll > 1 && offset >= maxScroll - 4;
-    const chapter = atEnd ? targets.length - 1 : targetsY.findLastIndex((top) => top <= offset + 118);
-    if (chapter !== activeChapter) {
-      for (const [index, link] of links.entries()) {
-        if (index === chapter) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      }
-      activeChapter = chapter;
+    const reachedWork = workTop <= offset + 118;
+    if (reachedWork !== workLinkActive) {
+      if (reachedWork) workLink.setAttribute('aria-current', 'location');
+      else workLink.removeAttribute('aria-current');
+      workLinkActive = reachedWork;
     }
     if (easedOffset !== offset) frame = requestAnimationFrame(animate);
     else lastFrameTime = 0;

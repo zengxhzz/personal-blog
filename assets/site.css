@@ -102,8 +102,6 @@ main section[id] { scroll-margin-top: var(--nav-height); }
 .headline h1 span { transform: translate3d(var(--line-x, 0px),0,0); }
 .headline h1 span:first-child { --line-x: var(--headline-first,0px); }
 .headline h1 span:last-child { --line-x: var(--headline-second,0px); }
-.journal dl div { transform: translate3d(0, var(--journal-y, 0px), 0); }
-.journal dl div:last-child { transform: translate3d(0, var(--journal-second-y, 0px), 0); }
 @media (max-width: 720px), (prefers-reduced-motion: reduce) {
   .work { min-height: 0; }
   .work-scene { position: static; }
@@ -111,7 +109,7 @@ main section[id] { scroll-margin-top: var(--nav-height); }
   .gallery-track { transform: none; grid-auto-columns: 89%; }
   .plate { scroll-snap-align: start; }
   .gallery-nav button { min-height: 44px; }
-  .headline h1 span, .journal dl div, .journal dl div:last-child { transform: none; }
+  .headline h1 span { transform: none; }
 }
 @media (max-width: 720px) {
   .plate-image { height: clamp(190px, 50vw, 420px); }
@@ -119,19 +117,7 @@ main section[id] { scroll-margin-top: var(--nav-height); }
   .plate figcaption span { display: block; margin-top: 4px; }
 }
 
-.journal { padding-block: clamp(42px, 8vw, 116px); }
-.journal .section-line { border-color: #ffffff38; }
-.journal .section-line span { color: #c7c5bf; }
-.journal h2 { font-size: clamp(30px, 5vw, 68px); line-height: 1.05; letter-spacing: -.055em; }
-.journal dl { margin: clamp(18px, 4vw, 46px) 0 0; }
-.journal dl div { display: grid; grid-template-columns: minmax(90px,.45fr) minmax(0,1fr); gap: 10px 18px; border-bottom: 1px solid #ffffff38; padding: 16px 0; }
-.journal dt { font-weight: 700; }
-.journal dt a { text-underline-offset: 4px; }
-.journal dd { margin: 0; line-height: 1.55; color: #c7c5bf; }
-@media (max-width: 480px) {
-  .journal dl div { grid-template-columns: 1fr; gap: 6px; }
-}
-.about { padding-bottom: clamp(46px, 7vw, 101px); }
+.about { padding-block: clamp(46px, 7vw, 101px); }
 .about h2 { margin: 0 0 10px; font-size: clamp(22px, 3vw, 36px); }
 .about p { max-width: 32em; margin: 0 0 12px; color: #c7c5bf; line-height: 1.65; }
 .about a { text-underline-offset: 4px; font-size: 14px; }
