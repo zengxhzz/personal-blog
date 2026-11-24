@@ -115,7 +115,11 @@ main section[id] { scroll-margin-top: var(--nav-height); }
 .journal dl { margin: clamp(18px, 4vw, 46px) 0 0; }
 .journal dl div { display: grid; grid-template-columns: minmax(90px,.45fr) minmax(0,1fr); gap: 10px 18px; border-bottom: 1px solid #ffffff38; padding: 16px 0; }
 .journal dt { font-weight: 700; }
+.journal dt a { text-underline-offset: 4px; }
 .journal dd { margin: 0; line-height: 1.55; color: #c7c5bf; }
+@media (max-width: 480px) {
+  .journal dl div { grid-template-columns: 1fr; gap: 6px; }
+}
 .about { padding-bottom: clamp(46px, 7vw, 101px); }
 .about h2 { margin: 0 0 10px; font-size: clamp(22px, 3vw, 36px); }
 .about p { max-width: 32em; margin: 0 0 12px; color: #c7c5bf; line-height: 1.65; }

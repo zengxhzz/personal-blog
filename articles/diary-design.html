@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gentle Diary 设计稿的 13 台手机如何统一外框比例，以及网站如何使用同一张设计稿展示两组界面。">
+  <title>统一 Gentle Diary 设计稿的手机比例 · 个人博客</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/reading.css">
+</head>
+<body class="reading">
+  <header class="top">
+    <div class="top-row wrap">
+      <a class="brand" href="../index.html">个人博客</a>
+      <nav aria-label="文章导航"><a href="../index.html#journal">返回开发笔记</a></nav>
+    </div>
+  </header>
+  <main class="reading-content">
+    <article aria-labelledby="article-title">
+      <header>
+        <p class="reading-date"><time datetime="2026-11-24">2026 年 11 月 24 日</time></p>
+        <h1 id="article-title">统一 Gentle Diary 设计稿的手机比例</h1>
+        <p class="reading-lead">原稿的主题区和写作区用了不同宽高比的外框。放到同一个作品页里，写作区的手机看起来明显偏宽。</p>
+      </header>
+      <h2>量外框，再整理源图</h2>
+      <p>以主题区的手机为参考，把 13 台手机的外框校正为 154∶318。每一排采用一致的外框尺寸，屏幕里的文字、照片和控件按原有比例排进外框。完成后逐个测量外框，再导出整张设计稿。</p>
+      <figure>
+        <a href="../assets/gentle-diary-design.png"><img src="../assets/gentle-diary-design.png" width="1312" height="1199" decoding="async" alt="比例统一后的 Gentle Diary 完整设计图，包含六款主题、五种写作状态和日记列表"></a>
+        <figcaption>校正后的设计稿，点击可查看原尺寸。</figcaption>
+      </figure>
+      <h2>让首页和详情页使用同一张图</h2>
+      <p>首页图集和详情页都引用修正后的源图。写作界面与主题用 CSS 分别裁出对应范围，保留完整的手机边框和图注。以后调整画面时，可以在两处用同一份图复核。</p>
+      <nav class="reading-links" aria-label="相关文章与作品">
+        <a href="../projects/gentle-diary.html">查看 Gentle Diary 项目</a>
+        <a href="scroll-gallery.html">阅读首页图集的实现</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
