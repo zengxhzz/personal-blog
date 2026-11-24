@@ -4,7 +4,7 @@
   const workScene = document.querySelector('.work-scene');
   const journal = document.querySelector('.journal');
   const progress = document.querySelector('.progress');
-  const links = Array.from(document.querySelectorAll('.top nav a'));
+  const links = Array.from(document.querySelectorAll('.top nav a[href^="#"]'));
   const targets = links.map((link) => document.querySelector(link.hash));
   const gallery = document.querySelector('.gallery');
   const track = document.querySelector('.gallery-track');
